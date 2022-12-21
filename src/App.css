@@ -1,38 +1,540 @@
-.App {
-  text-align: center;
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: #f6f8ff;
+  gap: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#dark.main {
+  background: #141d2f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.heading {
+  width: 47%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 0.7rem;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  color: #222731;
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+#dark .mode {
+  color: #ffffff;
+}
+
+.devfinder {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 39px;
+  color: #222731;
+}
+
+#dark .devfinder {
+  color: #ffffff;
+}
+
+.search-bar {
+  width: 47%;
+  background: #fefefe;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  gap: 2rem;
+}
+
+#dark .search-bar {
+  background: #1e2a47;
+  box-shadow: none;
+}
+
+.search-field {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #222731;
+}
+
+#dark .input-field {
+  background: #1e2a47;
+  color: #ffffff;
+}
+
+#dark .input-field::placeholder {
+  color: #ffffff;
+}
+
+.noResults {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #f74646;
+  white-space: nowrap;
+}
+
+.search-btn {
+  background: #0079ff;
+  border-radius: 10px;
+  border: none;
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.search-btn:hover {
+  background: #60abff;
+  cursor: pointer;
+}
+
+.searchResult {
+  width: 45%;
+  background: #fefefe;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  border-radius: 15px;
+  padding: 2%;
+  gap: 1rem;
+}
+
+.wholeResult {
+  /* width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; */
+  /* es unda shevcvalo */
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+  justify-content: space-evenly;
+}
+
+.profileHeader {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin: 0;
+}
+
+.profileInfoWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  margin: 0;
+}
+
+.userBio {
+  width: 80%;
+  margin-top: -10px;
+  padding: 0;
+}
+
+.imageAndJoined {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#dark .searchResult {
+  background: #1e2a47;
+  box-shadow: none;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  color: #2b3442;
+  font-size: 1.7rem;
+}
+
+#dark h1 {
+  color: #ffffff;
+}
+
+.userNameP {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  color: #0079ff;
+  margin: 0;
+  font-size: 1rem;
+}
+.userJoinedDateP {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  text-align: right;
+  color: #697c9a;
+  font-size: 1rem;
+}
+
+#dark .userJoinedDateP {
+  color: #ffffff;
+}
+
+.userBioYes {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  color: #4b6a9b;
+  font-size: 1rem;
+}
+
+#dark .userBioYes {
+  color: #ffffff;
+}
+
+.userBioNo {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  color: #4b6a9b;
+  opacity: 0.75;
+  font-size: 1rem;
+}
+
+#dark .userBioNo {
+  color: #ffffff;
+  opacity: 0.3;
+}
+
+.userAvatar {
+  max-width: 117px;
+  max-height: 117px;
+  border-radius: 100px;
+}
+
+.userInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.namesAndBio {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.userNameAndJoined {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.imageWithUsername {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 100%;
+  gap: 1rem;
+}
+
+.reposAndFollow {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #f6f8ff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 1.2rem;
+  margin-top: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+#dark .reposAndFollow {
+  background: #141d2f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h3 {
+  margin: 0;
+  color: #4b6a9b;
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#dark h3 {
+  color: #ffffff;
+}
+
+p {
+  margin: 0;
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  color: #2b3442;
+  font-size: 1.4rem;
+}
+
+#dark p {
+  color: #ffffff;
+}
+
+.userLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.userLinkDiv {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userLinkName {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 22px;
+  color: #4b6a9b;
+}
+a,
+a:visited,
+a:active {
+  color: #4b6a9b;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#dark a {
+  color: #ffffff;
+}
+
+.notAvailable {
+  color: #4b6a9b;
+  opacity: 0.75;
+}
+
+.userLinkNameNotAvailable {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 22px;
+  color: #4b6a9b;
+  opacity: 0.75;
+}
+
+#dark .userLinkNameNotAvailable {
+  opacity: 0.3;
+}
+
+.userLinkLeftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.left {
+  width: 80%;
+}
+.userLinkRightSide {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 480px) and (max-width: 623px) {
+  html {
+    font-size: 11px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .heading {
+    width: 80%;
+  }
+
+  .devfinder {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0px;
+  }
+
+  .searchResult {
+    width: 80%;
+    gap: 1rem;
+  }
+  .search-bar {
+    width: 80%;
+  }
+
+  .userBio {
+    margin: 0;
+    width: 100%;
+  }
+
+  .userAvatar {
+    max-width: 100px;
+  }
+  .left {
+    width: 100%;
+  }
+  .profileInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-direction: flex-end;
+  }
+  .userJoinedDateP {
+    text-align: start;
+    margin-top: 0;
+  }
+  .wholeResult {
+    padding: 2rem;
+  }
+  .userLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .userLinkLeftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .userLinkRightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 623px) and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .heading {
+    width: 80%;
+  }
+
+  .devfinder {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0px;
+  }
+
+  .searchResult {
+    width: 80%;
+    gap: 1rem;
+  }
+  .search-bar {
+    width: 80%;
+  }
+
+  .userBio {
+    margin: 0;
+    width: 100%;
+  }
+
+  .userAvatar {
+    max-width: 100px;
+  }
+  .left {
+    width: 100%;
+  }
+  .profileInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-direction: flex-end;
+  }
+  .userJoinedDateP {
+    text-align: start;
+    margin-top: 0;
+  }
+  .wholeResult {
+    padding: 2rem;
+  }
+  .userLinks {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .userLinkLeftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .userLinkRightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .heading {
+    width: 80%;
+  }
+  .searchResult {
+    width: 80%;
+    gap: 1rem;
+  }
+  .search-bar {
+    width: 80%;
+  }
+  .userBio {
+    margin-top: 0px;
+    width: 80%;
   }
 }
