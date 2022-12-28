@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  background: #f6f8ff;
+  background: #0636e4;
   gap: 1rem;
 }
 
@@ -391,7 +391,7 @@ a:hover {
   gap: 2rem;
 }
 
-@media screen and (min-width: 480px) and (max-width: 623px) {
+@media screen and (max-width: 480px) {
   html {
     font-size: 11px;
   }
