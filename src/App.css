@@ -4,11 +4,7 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
-<<<<<<< HEAD
-  background: #0636e4;
-=======
   background: red;
->>>>>>> eb50c675a6e772e3e1a6c218fd7b3d41427681b3
   gap: 1rem;
 }
 
