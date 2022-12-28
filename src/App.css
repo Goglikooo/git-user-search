@@ -4,7 +4,11 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
+<<<<<<< HEAD
   background: #0636e4;
+=======
+  background: red;
+>>>>>>> eb50c675a6e772e3e1a6c218fd7b3d41427681b3
   gap: 1rem;
 }
 
@@ -536,5 +540,78 @@ a:hover {
   .userBio {
     margin-top: 0px;
     width: 80%;
+  }
+}
+@media screen and (min-width: 1023px) and (max-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+  .heading {
+    width: 80%;
+  }
+
+  .searchResult {
+    width: 80%;
+    gap: 1rem;
+  }
+  .search-bar {
+    width: 80%;
+  }
+  .userBio {
+    margin: 0px;
+    width: 80%;
+  }
+  .left {
+    width: 80%;
+  }
+  .profileInfoWrapper {
+    padding: 0;
+    width: 80%;
+  }
+  .profileHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1201px) {
+  html {
+    font-size: 18px;
+  }
+  .heading {
+    width: 45%;
+  }
+
+  .searchResult {
+    width: 45%;
+    gap: 1rem;
+  }
+  .search-bar {
+    width: 45%;
+  }
+  .userBio {
+    margin: 0px;
+    width: 80%;
+  }
+  .left {
+    width: 80%;
+  }
+  .profileInfoWrapper {
+    padding: 0;
+    width: 80%;
+  }
+  .profileHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  p {
+    font-size: 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  .userBioNo {
+    font-size: 1rem;
   }
 }
