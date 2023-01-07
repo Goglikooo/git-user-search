@@ -1,15 +1,12 @@
 import React from "react";
 import "./App.css";
 import { useEffect, useState } from "react";
-import locationIcon from "./icons/icon-location.svg";
-import websiteIcon from "./icons/icon-website.svg";
-import twitterIcon from "./icons/icon-twitter.svg";
-import companyIcon from "./icons/icon-company.svg";
-import searchIcon from "./icons/icon-search.svg";
-import moonIcon from "./icons/icon-moon.svg";
-import sunIcon from "./icons/icon-sun.svg";
-
+import Header from "./Components/Header";
 import { createContext } from "react";
+import Searchbar from "./Components/Searchbar";
+import ProfileHeader from "./Components/ProfileHeader";
+import ReposAndFollows from "./Components/ReposAndFollows";
+import UserLinks from "./Components/UserLinks";
 
 export const ThemeContext = createContext<null | {}>(null);
 
@@ -129,67 +126,22 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="main" id={theme}>
-        <div className="heading">
-          <h2 className="devfinder">devfinder</h2>
-          {theme === "light" ? (
-            <div className="mode" onClick={toggleTheme}>
-              <span>DARK</span>
-              <img src={moonIcon} alt="moon icon" />
-            </div>
-          ) : (
-            <div className="mode" onClick={toggleTheme}>
-              <span>LIGHT</span>
-              <img src={sunIcon} alt="moon icon" />
-            </div>
-          )}
-        </div>
-        <div className="search-bar">
-          <div className="search-field">
-            <img src={searchIcon} alt="" />
-            <input
-              className="input-field"
-              type="text"
-              placeholder="Search GitHub username…"
-              onChange={(e) => {
-                setUserSearch(e.target.value);
-              }}
-            />
-          </div>
-          {userMessage ? (
-            <span className="noResults">{userMessage}</span>
-          ) : null}
-          <button
-            className="search-btn"
-            onClick={() => {
-              requestUser(`${userSearch}`);
-              setUserMessage(null);
-            }}
-          >
-            Search
-          </button>
-        </div>
-
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        <Searchbar
+          setUserSearch={setUserSearch}
+          requestUser={requestUser}
+          setUserMessage={setUserMessage}
+          userSearch={userSearch}
+          userMessage={userMessage}
+        />
         <div className="searchResult">
           <div className="wholeResult">
-            <div className="profileHeader">
-              <img
-                src={`${userAvatar}`}
-                alt="userAvatar"
-                className="userAvatar"
-              />
-              <div className="profileInfoWrapper">
-                <div className="userAndUserName">
-                  {userLogin ? (
-                    <h1>{`${userLogin}`}</h1>
-                  ) : (
-                    <h1 className="notAvailable">Not Available</h1>
-                  )}
-
-                  <p className="userNameP">@{`${userName}`}</p>
-                </div>
-                <p className="userJoinedDateP">{`${userJoined}`}</p>
-              </div>
-            </div>
+            <ProfileHeader
+              userAvatar={userAvatar}
+              userLogin={userLogin}
+              userName={userName}
+              userJoined={userJoined}
+            />
             <div className="userBio">
               {userBio ? (
                 <p className="userBioYes">{`${userBio}`}</p>
@@ -198,63 +150,17 @@ function App() {
               )}
             </div>
             <div className="left">
-              <div className="reposAndFollow">
-                <div className="repositori">
-                  <h3>Repos</h3>
-                  <p>{`${userRepos}`}</p>
-                </div>
-                <div className="followers">
-                  <h3>Followers</h3>
-                  <p>{`${userFollowers}`}</p>
-                </div>
-                <div className="following">
-                  <h3>Following</h3>
-                  <p>{`${userFollowing}`}</p>
-                </div>
-              </div>
-              <div className="userLinks">
-                <div className="userLinkLeftSide">
-                  <div className="userLinkDiv">
-                    <img src={locationIcon} alt="userLocation" />
-                    {userLocation ? (
-                      <p className="userLinkName">{`${userLocation}`}</p>
-                    ) : (
-                      <p className="userLinkNameNotAvailable">Not Available</p>
-                    )}
-                  </div>
-                  <div className="userLinkDiv">
-                    <img src={websiteIcon} alt="userWebsite" />
-                    {userBlog ? (
-                      <p className="userLinkName">
-                        <a
-                          href={`${userBlog}`}
-                          className="actualLinks"
-                        >{`${userBlog}`}</a>
-                      </p>
-                    ) : (
-                      <p className="userLinkNameNotAvailable">Not Available</p>
-                    )}
-                  </div>
-                </div>
-                <div className="userLinkRightSide">
-                  <div className="userLinkDiv">
-                    <img src={twitterIcon} alt="userTwitter" />
-                    {userTwitter ? (
-                      <p className="userLinkName">{`${userTwitter}`}</p>
-                    ) : (
-                      <p className="userLinkNameNotAvailable">Not Available</p>
-                    )}
-                  </div>
-                  <div className="userLinkDiv">
-                    <img src={companyIcon} alt="userCompany" />
-                    {userCompany ? (
-                      <p className="userLinkName">{`${userCompany}`}</p>
-                    ) : (
-                      <p className="userLinkNameNotAvailable">Not Available</p>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <ReposAndFollows
+                userRepos={userRepos}
+                userFollowers={userFollowers}
+                userFollowing={userFollowing}
+              />
+              <UserLinks
+                userLocation={userLocation}
+                userBlog={userBlog}
+                userTwitter={userTwitter}
+                userCompany={userCompany}
+              />
             </div>
           </div>
         </div>
